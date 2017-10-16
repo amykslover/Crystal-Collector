@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crystal Collector</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style type="text/css">
+    body {background: url(assets/images/gemstone-shampoo.jpg);}
+    .flex {display: flex; justify-content: space-around;}
+    .center {text-align: center;}
+    .topMargin {margin-top: 20px;}
+</style>
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<!-- <div class="jumbotron">
+    <h1 class="text-center">Crystal Collector</h1>
+</div> -->
+
+<div class="container">
+
+    <div class="row topMargin">
+
+        <!-- Calculator Panel -->
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body flex">
+                    <input type="image" src="assets/images/orange.jpg" id="gem1" style="height: 200px; width: 200px;"/>
+                    <input type="image" src="assets/images/emerald.jpeg" id="gem2" style="height: 200px; width: 200px;"/>
+                    <input type="image" src="assets/images/diamond.jpeg" id="gem3" style="height: 200px; width:200px;"/>
+                    <input type="image" src="assets/images/amethyst.jpg"  id="gem4" style="height: 200px; width: 200px;"/>
+                    <input type="image" src="assets/images/yellowdiamond.jpeg"  id="gem5" style="height: 170px; width: 180px; margin-top: 15px;"/>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 center">
+            <div class="panel panel-default">
+                
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Number to Guess</h3>
+                    </div>
+                    
+                    <div class="panel-body" id="resultpanel">
+                        <h1 id="numberGuess"></h1>
+                    </div>
+
+            </div>
+        </div>    
+
+        <div class="col-lg-6 center">
+            <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Guess Total</h3>
+                    </div>
+                    
+                    <div class="panel-body" id="resultpanel">
+                        <h1 id="result"></h1>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+        <div class="row topMargin">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+
+                    <div class="panel-body flex">
+                        <div>
+                            <h1 id="wins">W: 0</h1>
+                        </div>
+
+                        <div>
+                            <h1 id="losses">L: 0</h1>
+                        </div>
+                    </div>
+
+                </div>
+            </div>            
+
+        </div>
+
+</div>
+
+<script type="text/javascript">
+
+
+
+
+var masterNumber = Math.floor(Math.random() * 80);
+var crystal1 = Math.floor(Math.random() * 10)+1;
+var crystal2 = Math.floor(Math.random() * 10)+1;
+var crystal3 = Math.floor(Math.random() * 10)+1;
+var crystal4 = Math.floor(Math.random() * 10)+1;
+var crystal5 = Math.floor(Math.random() * 10)+1;
+var countWins = 0;
+var countLoss = 0;
+var guessTotal = 0;
+
+
+console.log(crystal1);
+console.log(crystal2);
+console.log(crystal3);
+console.log(crystal4);
+console.log(crystal5);
+console.log(masterNumber);
+
+function checkStatus() {
+
+    if (guessTotal == masterNumber) {
+        setTimeout(function(){
+            alert("You won!");
+            countWins = countWins + 1;
+            $("#wins").text("W: " + countWins);
+            var result = confirm("Do you want to play again?");
+            if(result) {
+                resetGame();
+            } else {
+                $(location).attr('href', 'http://goodbye.html');
+            }
+        } , 100)
+        }    
+
+    if (guessTotal > masterNumber) {
+        setTimeout(function(){
+            alert("You lost!");
+            countLoss = countLoss + 1;
+            console.log("Losses: " + countLoss);
+            $("#losses").text("L: " + countLoss);
+            var result = confirm("Do you want to play again?");
+            if(result) {
+                resetGame();
+            } else {
+                $(location).attr('href', 'goodbye.html');
+            }
+   
+        } , 100)
+    }
+}
+
+function resetGame() {
+
+masterNumber = Math.floor(Math.random() * 80);
+crystal1 = Math.floor(Math.random() * 10)+1;
+crystal2 = Math.floor(Math.random() * 10)+1;
+crystal3 = Math.floor(Math.random() * 10)+1;
+crystal4 = Math.floor(Math.random() * 10)+1;
+crystal5 = Math.floor(Math.random() * 10)+1;
+guessTotal = 0;
+$("#result").text(guessTotal);
+$("#numberGuess").text(masterNumber);
+console.log(crystal1);
+console.log(crystal2);
+console.log(crystal3);
+console.log(crystal4);
+console.log(crystal5);
+console.log(masterNumber);
+};
+
+
+$(document).ready(function(){
+
+
+$("#numberGuess").text(masterNumber);
+
+$("#result").text(guessTotal);
+
+    if(guessTotal < masterNumber) {
+
+        $("#gem1").click(function(){
+            console.log("Console log:" + crystal1);
+            guessTotal = guessTotal + crystal1;
+            $("#result").text(guessTotal);
+            checkStatus();
+        });
+
+        $("#gem2").click(function(){
+            console.log("Console log:" + crystal2);
+            guessTotal = guessTotal + crystal2;
+            $("#result").text(guessTotal);
+            checkStatus();
+
+        });
+
+        $("#gem3").click(function(){
+            console.log("Console log:" + crystal3);
+            guessTotal = guessTotal + crystal3;
+            $("#result").text(guessTotal); 
+            checkStatus();
+        });
+
+        $("#gem4").click(function(){
+            console.log("Console log:" + crystal4);
+            guessTotal = guessTotal + crystal4;
+            $("#result").text(guessTotal);
+            checkStatus();
+        });
+
+        $("#gem5").click(function(){
+            console.log("Console log:" + crystal4);
+            guessTotal = guessTotal + crystal5;
+            $("#result").text(guessTotal);
+            checkStatus();
+        });
+
+        } 
+});
+
+</script>
+
+</body>
+</html>
