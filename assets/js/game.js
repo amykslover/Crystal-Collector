@@ -27,7 +27,7 @@ function checkStatus() {
             if(result) {
                 resetGame();
             } else {
-                $(location).attr('href', '../goodbye.html');
+                $(location).attr('href', './goodbye.html');
             }
         } , 100)
         }    
@@ -42,7 +42,7 @@ function checkStatus() {
             if(result) {
                 resetGame();
             } else {
-                $(location).attr('href', '../goodbye.html');
+                $(location).attr('href', './goodbye.html');
             }
    
         } , 100)
