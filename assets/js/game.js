@@ -16,7 +16,8 @@ function playAgain() {
     if(result) {
     resetGame();
     } else {
-    $(location).attr('href', './goodbye.html');
+       $("#crystalcollection").empty();
+       $("#crystalcollection").html("<h3>Goodbye!</h3>");
     }   
 };
 
