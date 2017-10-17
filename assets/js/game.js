@@ -16,8 +16,7 @@ function playAgain() {
     if(result) {
     resetGame();
     } else {
-       .empty(); 
-    // $(location).attr('href', './goodbye.html');
+    $(location).attr('href', './goodbye.html');
     }   
 };
 
