@@ -8,21 +8,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/game.js"></script>
     <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-
-    <style type="text/css">
-        body {background: url(assets/images/gemstone-shampoo.jpg);}
-        .flex {display: flex; justify-content: space-around;}
-        .center {text-align: center;}
-        .topMargin {margin-top: 20px;}
-        .color {background-color: #24185A;}
-        h1 {color: white;}
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-<body>
 
+<body>
 <!-- Jumbotron for Title -->
 <div class="jumbotron color center">
     <h1>Crystal Collector</h1>
@@ -35,6 +29,7 @@
         <!-- Calculator Panel -->
         <div class="col-lg-12">
             <div class="panel panel-default">
+
                 <div class="panel-body flex">
                     <input type="image" src="assets/images/orange.jpg" id="gem1" style="height: 200px; width: 200px;"/>
                     <input type="image" src="assets/images/emerald.jpeg" id="gem2" style="height: 200px; width: 200px;"/>
@@ -48,7 +43,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6 center">
+        <div class="col-lg-3 center">
             <div class="panel panel-default">
                 
                     <div class="panel-heading">
@@ -62,10 +57,10 @@
             </div>
         </div>    
 
-        <div class="col-lg-6 center">
+        <div class="col-lg-3 center">
             <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Guess Total</h3>
+                        <h3 class="panel-title">Current Number</h3>
                     </div>
                     
                     <div class="panel-body" id="resultpanel">
@@ -74,27 +69,34 @@
 
             </div>
         </div>
-    </div>
 
-        <div class="row topMargin">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-
-                    <div class="panel-body flex">
-                        <div>
-                            <h2 id="wins"> W: 0</h2>
-                        </div>
-
-                        <div>
-                            <h2 id="losses"> L: 0</h2>
-                        </div>
+        <div class="col-lg-3 center">
+            <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Won</h3>
+                    </div>
+                    
+                    <div class="panel-body" id="resultpanel">
+                        <h2 id="wins">0</h2>
                     </div>
 
-                </div>
-            </div>            
-
+            </div>
         </div>
 
+        <div class="col-lg-3 center">
+            <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Lost</h3>
+                    </div>
+                    
+                    <div class="panel-body" id="resultpanel">
+                        <h2 id="losses">0</h2>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+     
 </div>
 </body>
 </html>

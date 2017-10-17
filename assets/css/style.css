@@ -1,0 +1,27 @@
+body {
+	background: url(../images/gemstone-shampoo.jpg);
+}
+
+h1 {
+	color: white !important;
+}
+
+.flex {
+	display: flex;
+	justify-content: space-around;
+}
+
+.center {
+	text-align: center;
+}
+.topMargin {
+	margin-top: 5px;}
+
+.color {
+	background-color: #24185A;}
+
+.height {
+	height: 150px;
+
+}
+

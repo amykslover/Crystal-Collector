@@ -8,44 +8,43 @@ var countWins = 0;
 var countLoss = 0;
 var guessTotal = 0;
 
+$("#wins").text("W: " + countLoss);
+$("#losses").text("L: " + countLoss); 
 
-console.log(crystal1);
-console.log(crystal2);
-console.log(crystal3);
-console.log(crystal4);
-console.log(crystal5);
-console.log(masterNumber);
+function playAgain() {
+    var result = confirm("Do you want to play again?");
+    if(result) {
+    resetGame();
+    } else {
+       .empty(); 
+    // $(location).attr('href', './goodbye.html');
+    }   
+};
+
+function youLost() {
+    alert("You lost!");
+}
+
+function youWon() {
+    alert("You won!");
+}
 
 function checkStatus() {
 
-    if (guessTotal == masterNumber) {
-        setTimeout(function(){
-            alert("You won!");
-            countWins = countWins + 1;
-            $("#wins").text("W: " + countWins);
-            var result = confirm("Do you want to play again?");
-            if(result) {
-                resetGame();
-            } else {
-                $(location).attr('href', './goodbye.html');
-            }
-        } , 100)
-        }    
+    if (guessTotal === masterNumber) {
+        countWins = countWins + 1;
+        $("#wins").text(countWins);
+
+        setTimeout(youWon,300);
+        setTimeout(playAgain,1000);  
+    }   
 
     if (guessTotal > masterNumber) {
-        setTimeout(function(){
-            alert("You lost!");
-            countLoss = countLoss + 1;
-            console.log("Losses: " + countLoss);
-            $("#losses").text("L: " + countLoss);
-            var result = confirm("Do you want to play again?");
-            if(result) {
-                resetGame();
-            } else {
-                $(location).attr('href', './goodbye.html');
-            }
-   
-        } , 100)
+        countLoss = countLoss + 1;
+        $("#losses").text(countLoss); 
+
+        setTimeout(youLost,300);
+        setTimeout(playAgain,1000);  
     }
 }
 
